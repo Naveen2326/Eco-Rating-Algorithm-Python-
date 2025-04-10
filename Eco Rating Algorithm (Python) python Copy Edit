@@ -1,0 +1,11 @@
+def calculate_eco_score(product):
+    # Sample criteria weights (0–1 scale)
+    packaging_score = product.get('packaging', 0.8)
+    carbon_emission = product.get('carbon_emission', 0.5)
+    recyclability = product.get('recyclability', 1)
+    
+    # Final score
+    score = (packaging_score * 0.3) + ((1 - carbon_emission) * 0.4) + (recyclability * 0.3)
+    
+    # Normalize to 1–5
+    return round(score * 5)

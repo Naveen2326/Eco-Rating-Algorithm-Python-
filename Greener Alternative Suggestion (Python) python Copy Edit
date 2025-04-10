@@ -1,0 +1,11 @@
+from sklearn.metrics.pairwise import cosine_similarity
+
+def suggest_alternatives(product_features, all_products):
+    similarities = []
+    for p in all_products:
+        sim = cosine_similarity([product_features], [p['features']])
+        similarities.append((p, sim[0][0]))
+
+    # Sort by similarity & eco-score
+    alternatives = sorted(similarities, key=lambda x: (-x[1], -x[0]['eco_score']))
+    return alternatives[:3]

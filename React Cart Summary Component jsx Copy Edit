@@ -1,0 +1,11 @@
+function CartSummary({ cart }) {
+  const totalFootprint = cart.reduce((acc, item) => acc + item.carbon_footprint, 0);
+
+  return (
+    <div className="p-4 rounded-xl bg-green-100">
+      <h2 className="text-xl font-bold mb-2">🛒 Cart Summary</h2>
+      <p>Total Items: {cart.length}</p>
+      <p>Carbon Footprint: {totalFootprint.toFixed(2)} kg CO₂</p>
+    </div>
+  );
+}

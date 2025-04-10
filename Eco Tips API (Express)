@@ -1,0 +1,14 @@
+const express = require('express');
+const router = express.Router();
+
+const ecoTips = [
+  "Use reusable bags instead of plastic.",
+  "Buy in bulk to reduce packaging waste.",
+  "Choose organic and locally sourced products.",
+];
+
+router.get('/eco-tips', (req, res) => {
+  res.json({ tips: ecoTips });
+});
+
+module.exports = router;

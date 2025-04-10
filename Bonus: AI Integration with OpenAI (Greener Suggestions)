@@ -1,0 +1,12 @@
+import openai
+
+def get_ai_suggestion(product_name):
+    openai.api_key = 'YOUR_API_KEY'
+    prompt = f"Suggest a greener alternative to {product_name} and explain why it's better."
+
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    return response['choices'][0]['message']['content']
